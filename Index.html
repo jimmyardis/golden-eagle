@@ -1,0 +1,408 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Golden Eagle Precious Metals Exchange | Irmo, SC</title>
+  <meta name="description" content="The Midlands' premier dealer for buying and selling gold, silver, platinum, coins, and bullion. Free Olympus GoldXpert XRF analysis." />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  
+  <style>
+    :root {
+      --bg-dark: #0f141c;
+      --bg-card: #18202c;
+      --gold-primary: #d4af37;
+      --gold-light: #f3e5ab;
+      --gold-gradient: linear-gradient(135deg, #f9e79f 0%, #d4af37 50%, #aa771c 100%);
+      --text-main: #f8fafc;
+      --text-muted: #94a3b8;
+      --border-color: #27354a;
+      --accent: #1e293b;
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: 'Inter', sans-serif;
+      background-color: var(--bg-dark);
+      color: var(--text-main);
+      line-height: 1.6;
+    }
+
+    h1, h2, h3, .brand-font {
+      font-family: 'Cinzel', serif;
+      letter-spacing: 0.5px;
+    }
+
+    .container { max-width: 1200px; margin: 0 auto; padding: 0 20px; }
+
+    /* Top Banner */
+    .top-bar {
+      background: #080b0f;
+      border-bottom: 1px solid var(--border-color);
+      font-size: 0.85rem;
+      padding: 8px 0;
+      color: var(--text-muted);
+    }
+    .top-bar-content {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    /* Navbar */
+    header {
+      background: rgba(15, 20, 28, 0.95);
+      backdrop-filter: blur(10px);
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      border-bottom: 1px solid var(--border-color);
+    }
+    .nav-container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 16px 0;
+    }
+    .logo-area {
+      display: flex;
+      flex-direction: column;
+    }
+    .logo-title {
+      font-size: 1.25rem;
+      font-weight: 700;
+      background: var(--gold-gradient);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      text-transform: uppercase;
+    }
+    .logo-sub {
+      font-size: 0.7rem;
+      letter-spacing: 2px;
+      color: var(--text-muted);
+      text-transform: uppercase;
+    }
+    .nav-actions { display: flex; align-items: center; gap: 15px; }
+
+    .btn {
+      display: inline-block;
+      padding: 10px 22px;
+      border-radius: 6px;
+      font-weight: 600;
+      font-size: 0.9rem;
+      text-decoration: none;
+      transition: all 0.2s ease;
+      cursor: pointer;
+    }
+    .btn-gold {
+      background: var(--gold-gradient);
+      color: #0f141c;
+      box-shadow: 0 4px 14px rgba(212, 175, 55, 0.25);
+    }
+    .btn-gold:hover { transform: translateY(-2px); box-shadow: 0 6px 20px rgba(212, 175, 55, 0.4); }
+    .btn-outline {
+      border: 1px solid var(--border-color);
+      color: var(--text-main);
+      background: rgba(255,255,255,0.03);
+    }
+    .btn-outline:hover { border-color: var(--gold-primary); color: var(--gold-light); }
+
+    /* Hero Section */
+    .hero {
+      position: relative;
+      padding: 90px 0 80px;
+      background: radial-gradient(circle at 50% 20%, rgba(212, 175, 55, 0.08) 0%, transparent 60%);
+      border-bottom: 1px solid var(--border-color);
+      text-align: center;
+    }
+    .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: rgba(212, 175, 55, 0.1);
+      border: 1px solid rgba(212, 175, 55, 0.3);
+      padding: 6px 14px;
+      border-radius: 50px;
+      font-size: 0.8rem;
+      color: var(--gold-light);
+      margin-bottom: 20px;
+    }
+    .hero h1 {
+      font-size: 2.8rem;
+      line-height: 1.2;
+      margin-bottom: 18px;
+      max-width: 850px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    .hero p {
+      font-size: 1.15rem;
+      color: var(--text-muted);
+      max-width: 650px;
+      margin: 0 auto 30px;
+    }
+    .hero-cta { display: flex; justify-content: center; gap: 15px; flex-wrap: wrap; margin-bottom: 40px; }
+
+    /* Trust Grid */
+    .trust-strip {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 20px;
+      margin-top: 40px;
+      text-align: left;
+    }
+    .trust-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border-color);
+      padding: 18px 20px;
+      border-radius: 8px;
+      border-left: 3px solid var(--gold-primary);
+    }
+    .trust-card h4 { font-size: 0.95rem; margin-bottom: 4px; color: var(--text-main); }
+    .trust-card p { font-size: 0.8rem; color: var(--text-muted); margin: 0; }
+
+    /* Services Section */
+    .section { padding: 80px 0; border-bottom: 1px solid var(--border-color); }
+    .section-title { text-align: center; margin-bottom: 50px; }
+    .section-title h2 { font-size: 2.1rem; margin-bottom: 10px; }
+    .section-title p { color: var(--text-muted); font-size: 1rem; }
+
+    .grid-3 {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 25px;
+    }
+    .feature-box {
+      background: var(--bg-card);
+      border: 1px solid var(--border-color);
+      border-radius: 10px;
+      padding: 30px;
+      transition: border-color 0.2s;
+    }
+    .feature-box:hover { border-color: rgba(212, 175, 55, 0.4); }
+    .feature-box h3 { font-size: 1.25rem; margin: 15px 0 10px; }
+    .feature-box p { color: var(--text-muted); font-size: 0.92rem; }
+    .feature-tag {
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      font-weight: 700;
+      letter-spacing: 1px;
+      color: var(--gold-primary);
+    }
+
+    /* Machine Feature Callout */
+    .analyzer-highlight {
+      background: linear-gradient(180deg, #16202c 0%, #101721 100%);
+      border: 1px solid var(--gold-primary);
+      border-radius: 12px;
+      padding: 40px;
+      margin: 40px 0 0;
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+    }
+
+    /* Google Reviews Section */
+    .reviews-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 20px;
+    }
+    .review-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border-color);
+      border-radius: 8px;
+      padding: 24px;
+    }
+    .stars { color: #f59e0b; margin-bottom: 10px; font-size: 1rem; }
+    .review-text { font-size: 0.92rem; color: #cbd5e1; font-style: italic; margin-bottom: 14px; }
+    .review-author { font-size: 0.85rem; font-weight: 600; color: var(--text-main); }
+    .review-source { font-size: 0.75rem; color: var(--text-muted); }
+
+    /* Location / Contact Card */
+    .contact-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border-color);
+      border-radius: 12px;
+      padding: 40px;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 30px;
+      align-items: center;
+    }
+    @media (max-width: 768px) {
+      .contact-card { grid-template-columns: 1fr; }
+      .hero h1 { font-size: 2.1rem; }
+    }
+
+    /* Footer */
+    footer {
+      padding: 30px 0;
+      text-align: center;
+      font-size: 0.85rem;
+      color: var(--text-muted);
+      border-top: 1px solid var(--border-color);
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Top Announcement Bar -->
+  <div class="top-bar">
+    <div class="container top-bar-content">
+      <div>📍 1100 Dutch Fork Rd, Suite L, Irmo, SC 29063 (Dutch Fork Rd & Broad River)</div>
+      <div>📞 Direct Exchange Line: <strong>(803) 217-1021</strong></div>
+    </div>
+  </div>
+
+  <!-- Main Navigation -->
+  <header>
+    <div class="container nav-container">
+      <div class="logo-area">
+        <span class="logo-title">Golden Eagle</span>
+        <span class="logo-sub">Precious Metals Exchange</span>
+      </div>
+      <div class="nav-actions">
+        <a href="tel:8032171021" class="btn btn-gold">Call (803) 217-1021</a>
+      </div>
+    </div>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="hero">
+    <div class="container">
+      <div class="hero-badge">
+        <span>★ 4.8 Rating | 80+ Local Midlands Reviews | BBB Accredited (A+)</span>
+      </div>
+      <h1>Transparent, Exact Pricing for Gold, Silver & Bullion</h1>
+      <p>
+        The Midlands' trusted private exchange. We buy, sell, and facilitate physical gold, silver, rare numismatics, and bullion investments with zero games and zero pressure.
+      </p>
+      <div class="hero-cta">
+        <a href="tel:8032171021" class="btn btn-gold">Call for Today's Quote</a>
+        <a href="https://maps.google.com/?q=1100+Dutch+Fork+Rd+Irmo+SC+29063" target="_blank" class="btn btn-outline">Get Directions to Shop</a>
+      </div>
+
+      <!-- Trust Badges -->
+      <div class="trust-strip">
+        <div class="trust-card">
+          <h4>Scientific Purity Testing</h4>
+          <p>Instant elemental verification using our in-house Olympus GoldXpert XRF analyzer.</p>
+        </div>
+        <div class="trust-card">
+          <h4>Accredited & Local</h4>
+          <p>BBB A+ Accredited. 16+ years of continuous service in Irmo, Chapin, and Columbia.</p>
+        </div>
+        <div class="trust-card">
+          <h4>Immediate Payouts</h4>
+          <p>No waiting on checks in the mail. Fair, market-tied cash payouts on the spot.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Core Services -->
+  <section class="section">
+    <div class="container">
+      <div class="section-title">
+        <h2>What We Buy & Sell</h2>
+        <p>Whether you're liquidating an estate or diversifying your physical portfolio</p>
+      </div>
+
+      <div class="grid-3">
+        <div class="feature-box">
+          <span class="feature-tag">Gold & Silver Bullion</span>
+          <h3>Bars, Rounds & Coins</h3>
+          <p>American Eagles, Canadian Maples, Krugerrands, 90% junk silver coins, and serialized 1 oz to 100 oz mint bars ready for vaulting or private delivery.</p>
+        </div>
+        <div class="feature-box">
+          <span class="feature-tag">Estate & Scrap Jewelry</span>
+          <h3>Gold & Platinum Liquidation</h3>
+          <p>Broken chains, rings, dental gold, and vintage jewelry. Tested right in front of you down to exact karat purity so you get paid true melt weight.</p>
+        </div>
+        <div class="feature-box">
+          <span class="feature-tag">Retirement & Consulting</span>
+          <h3>Precious Metals IRAs</h3>
+          <p>Guidance on incorporating physical, IRS-approved precious metals into self-directed retirement accounts with insured third-party repository vaulting.</p>
+        </div>
+      </div>
+
+      <!-- Olympus Analyzer Focus Box -->
+      <div class="analyzer-highlight">
+        <span class="feature-tag">State-of-the-Art Technology</span>
+        <h3>Free Metal Analysis: Olympus GoldXpert Analyzer</h3>
+        <p style="color: var(--text-muted); font-size: 0.95rem;">
+          Don't let scrap buyers perform acid scratch tests that damage your jewelry and guess at karat weight. We utilize an on-site, non-destructive <strong>Olympus GoldXpert XRF spectrometer</strong> that reads exact elemental compositions across 20+ metals in seconds right in front of your eyes. Complete transparency, guaranteed.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Google Reviews Front & Center -->
+  <section class="section" style="background: #0d1219;">
+    <div class="container">
+      <div class="section-title">
+        <h2>Backed By Midlands Collectors & Investors</h2>
+        <p>Read unfiltered feedback from local clients across Irmo, Chapin, and Lexington</p>
+      </div>
+
+      <div class="reviews-grid">
+        <div class="review-card">
+          <div class="stars">★★★★★</div>
+          <p class="review-text">"Fair, knowledgeable, and honest. He walked me through every coin I brought in and explained the numismatic value vs melt value. Best exchange in the Midlands."</p>
+          <div class="review-author">Verified Google Reviewer</div>
+          <div class="review-source">Local Guide • Irmo, SC</div>
+        </div>
+        <div class="review-card">
+          <div class="stars">★★★★★</div>
+          <p class="review-text">"Far better pricing than any pawn shop or mall kiosk in Columbia. He put my jewelry right on the analyzer screen so I saw the exact karats myself. Highly recommended."</p>
+          <div class="review-author">Verified Google Reviewer</div>
+          <div class="review-source">Local Guide • Chapin, SC</div>
+        </div>
+        <div class="review-card">
+          <div class="stars">★★★★★</div>
+          <p class="review-text">"Great inventory of physical silver and gold. Always takes time to talk market conditions and treats veteran patrons with genuine respect."</p>
+          <div class="review-author">Verified Google Reviewer</div>
+          <div class="review-source">Verified Customer</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Visit / Contact Section -->
+  <section class="section">
+    <div class="container">
+      <div class="contact-card">
+        <div>
+          <h2>Visit The Exchange</h2>
+          <p style="color: var(--text-muted); margin: 15px 0 25px;">
+            Located conveniently off Dutch Fork Road in Irmo. Walk-ins welcome during open hours, or call ahead for large estate liquidation or bullion consultations.
+          </p>
+          <p><strong>Address:</strong> 1100 Dutch Fork Rd, Suite L, Irmo, SC 29063</p>
+          <p><strong>Phone:</strong> (803) 217-1021</p>
+          <p><strong>Email:</strong> info@goldeneaglepmx.com</p>
+          <p style="margin-top: 10px;"><strong>Hours:</strong> Tue – Sat: 9:00 AM – 6:00 PM | Sun: 10:00 AM – 3:00 PM</p>
+        </div>
+        <div style="text-align: center; background: rgba(0,0,0,0.2); padding: 30px; border-radius: 8px; border: 1px dashed var(--border-color);">
+          <h3 style="margin-bottom: 10px; color: var(--gold-light);">Have Items to Appraise?</h3>
+          <p style="color: var(--text-muted); font-size: 0.9rem; margin-bottom: 20px;">
+            Bring in your coins, jewelry, sterling flatware, or bullion for an immediate on-site test.
+          </p>
+          <a href="tel:8032171021" class="btn btn-gold" style="width: 100%; text-align: center;">Call Now: (803) 217-1021</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="container">
+      <p>© 2026 Golden Eagle Precious Metals Exchange (Palmetto Gold and Silver, LLC). All rights reserved.</p>
+    </div>
+  </footer>
+
+</body>
+</html>
